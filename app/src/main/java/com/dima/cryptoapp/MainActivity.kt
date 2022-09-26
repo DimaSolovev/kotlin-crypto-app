@@ -1,32 +1,22 @@
 package com.dima.cryptoapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.dima.cryptoapp.api.ApiFactory
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 
 class MainActivity : AppCompatActivity() {
 
-    private val compositeDisposable = CompositeDisposable()
+    private lateinit var viewModel: CoinViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val disposable = ApiFactory.apiService.getFullPriceList(fSyms = "BTC,ETH,EOS")
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                Log.d("TEST_OF_LOADING",it.toString())
-            },{
-                //Log.d("TEST_OF_LOADING",it.message)
-            })
-        compositeDisposable.add(disposable)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        compositeDisposable.dispose()
+        viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
+        viewModel.loadData()
+        viewModel.priceList.observe(this, Observer {
+            Log.d("Test_loading_data","Success in activity: $it")
+        })
     }
 }
