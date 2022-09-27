@@ -6,4 +6,134 @@
     android:layout_height="match_parent"
     tools:context=".CoinDetailActivity">
 
+    <ImageView
+        android:id="@+id/ivLogoCoin"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tvSlash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogoCoin" />
+
+    <TextView
+        android:id="@+id/tvFromSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSlash"
+        app:layout_constraintEnd_toStartOf="@+id/tvSlash"
+        app:layout_constraintTop_toTopOf="@+id/tvSlash"
+        tools:text="BTC" />
+
+    <TextView
+        android:id="@+id/tvToSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSlash"
+        app:layout_constraintStart_toEndOf="@id/tvSlash"
+        app:layout_constraintTop_toTopOf="@+id/tvSlash"
+        tools:text="USD" />
+
+    <TextView
+        android:id="@+id/tvLabelPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Цена: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSlash" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:layout_constraintStart_toEndOf="@+id/tvLabelPrice"
+        app:layout_constraintTop_toBottomOf="@id/tvSlash"
+        tools:text="7353.5" />
+
+    <TextView
+        android:id="@+id/tvLabelMinPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Минимум за день: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelPrice" />
+
+    <TextView
+        android:id="@+id/tvMinPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textColor="@android:color/holo_red_dark"
+        app:layout_constraintStart_toEndOf="@+id/tvLabelMinPrice"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelPrice"
+        tools:text="7100.5" />
+
+    <TextView
+        android:id="@+id/tvLabelMaxPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Максимум за день: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelMinPrice" />
+
+    <TextView
+        android:id="@+id/tvMaxPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textColor="@android:color/holo_green_dark"
+        app:layout_constraintStart_toEndOf="@+id/tvLabelMaxPrice"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelMinPrice"
+        tools:text="7400" />
+
+    <TextView
+        android:id="@+id/tvLabelLastMarket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Последняя сделка: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelMaxPrice" />
+
+    <TextView
+        android:id="@+id/tvLastMarket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:layout_constraintStart_toEndOf="@+id/tvLabelLastMarket"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelMaxPrice"
+        tools:text="Bitrix" />
+
+    <TextView
+        android:id="@+id/tvLabelLastUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Обновлено: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelLastMarket" />
+
+    <TextView
+        android:id="@+id/tvLastUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:layout_constraintStart_toEndOf="@+id/tvLabelLastUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelLastMarket"
+        tools:text="12:14:10" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
