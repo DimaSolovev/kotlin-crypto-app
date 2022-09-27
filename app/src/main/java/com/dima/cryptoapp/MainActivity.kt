@@ -1,5 +1,6 @@
 package com.dima.cryptoapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -20,7 +21,9 @@ class MainActivity : AppCompatActivity() {
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener{
             override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
-                Log.d("ON_CLICK_TEST", coinPriceInfo.fromsymbol)
+               val intent = Intent(this@MainActivity,CoinDetailActivity::class.java)
+                intent.putExtra(CoinDetailActivity.EXTRA_FROM_SYMBOL,coinPriceInfo.fromsymbol)
+                startActivity(intent)
             }
         }
         rvCoinPriceList.adapter = adapter
